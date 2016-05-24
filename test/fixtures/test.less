@@ -1,0 +1,23 @@
+:root {
+	--color-1: red;
+	--color-2: #efefef;
+	--color-3: rgba(0, 0, 0, 0.5);
+	--border-style: solid;
+}
+
+body {
+	color: var(--color-1);
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+	height: 100%;
+	background-color: var(--color-2)
+
+	.box {
+		display: block;
+		background: var(--color-3) url('bg.png');
+		height: 200px;
+		border: 2px var(--border) #ccc;
+		width: 400px;
+	}
+}

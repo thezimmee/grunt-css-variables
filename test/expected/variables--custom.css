@@ -1,0 +1,14 @@
+/**
+ * ##!!! CUSTOM VARIABLES FOR OLDER BROWSERS !!!##
+ */
+/** tmp/variables--custom.css*/
+body {
+  color: var(--color-1);
+  background-color: var(--color-2);
+}
+
+.box {
+  background: var(--color-3) url('bg.png');
+  border: 2px var(--border-style) #ccc;
+}
+

@@ -1,0 +1,44 @@
+{
+  "name": "grunt-css-variables",
+  "description": "Fallback solution for browsers that do not support native CSS variables.",
+  "version": "0.1.0",
+  "homepage": "https://thezimmee@bitbucket.org/thezimmee/grunt-css-variables.git",
+  "author": {
+    "name": "The Zimmee",
+    "email": "thezimmee@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://thezimmee@bitbucket.org/thezimmee/grunt-css-variables.git"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/thezimmee/grunt-css-variables/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://bitbucket.org/thezimmee/grunt-css-variables/src/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-nodeunit": "^1.0.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "css": "^2.2.1",
+    "csso": "^2.1.1",
+    "custom-props": "^0.1.1",
+    "lodash": "^4.13.1",
+    "rework": "^1.0.1",
+    "rework-vars": "^3.1.1"
+  }
+}
