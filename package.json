@@ -1,7 +1,7 @@
 {
   "name": "grunt-css-variables",
   "description": "Fallback solution for browsers that do not support native CSS variables.",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "homepage": "https://thezimmee@bitbucket.org/thezimmee/grunt-css-variables.git",
   "author": {
     "name": "The Zimmee",
