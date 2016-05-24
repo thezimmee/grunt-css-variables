@@ -5,6 +5,33 @@
 ## Overview
 We had a use case where we needed to allow admin users to choose and update their site's theme colors on demand. We couldn't find an acceptable solution except for native CSS variables / custom properties, which in its current state is only supported by some of the newest browsers. So we created this plugin to offer a fallback solution to be able to use native CSS variables in any browser on the :root element. Once browser support for native CSS variables is up to par you can simply remove this plugin from your build process.
 
+Once you have have your task properly configured, the grunt build will create a separate stylesheet for you which contains only CSS rules which contain custom properties (with variables). You can then apply a fallback solution to browsers that don't support native CSS variables by doing the following:
+
+1. Detect browser support of native CSS variables, for example:
+  ```js
+  var supportsCssVars = function() {
+      var TEST_KEY = '--test-variable';
+      var TEST_VALUE = 'test value';
+
+      document.body.style.setProperty(TEST_KEY, TEST_VALUE);
+      var _nativeSupport = document.body.style.getPropertyValue(TEST_KEY) === TEST_VALUE;
+      if (_nativeSupport) {
+          document.body.style.removeProperty(TEST_KEY);
+      }
+      return _nativeSupport;
+  };
+  ```
+2. For browsers that DO support native variables, inject your new CSS variables at any time just like you would inject any styles.
+3. For browsers that do NOT support native variables:
+  1. Use an `ajax` call to grab the stylesheet created by this plugin
+  2. Replace the variables (i.e., `var(--your-variable)`) with your new values. For example:
+    ```js
+    for (var prop in styles) {
+        var re = new RegExp('var\\(\\-\\-' + prop + '\\)', 'g'); // replaces `var(--variable-name)`
+        styles = styles.replace(re, styles[prop]);
+    }
+    ```
+  3. Inject the updated styles into the DOM.
 
 ## Getting Started
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out:
@@ -25,8 +52,6 @@ grunt.loadNpmTasks('grunt-css-variables');
 ```
 
 ## Task configuration
-
-### The "css_variables" task
 In your project's Gruntfile, add a section named `css_variables` to the data object passed into `grunt.initConfig()`.
 
 ```js
